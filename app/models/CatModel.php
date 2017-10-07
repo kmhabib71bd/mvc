@@ -36,3 +36,9 @@
 	
 // 	}
 // 	public function insertCat($table, $data){
+// 		return $this->db->insert($table, $data);
+// 	}
+// }
+
+
+?>
