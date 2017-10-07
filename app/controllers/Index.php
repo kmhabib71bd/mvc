@@ -1,6 +1,17 @@
 <?php
+//Index Controller
+class Index extends DController{
+	public function __construct(){
+	 parent::__construct();
 
+	}
+public function home(){
+	echo "Home content from Index Controller";
+	//$this->load->view("home");
 
+}
+
+}
 
 ?>
 

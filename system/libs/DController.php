@@ -2,7 +2,7 @@
 
 class DController{
 	public function __construct(){
-		echo "From parent controller";
+		//echo "From parent controller";
 	}
 }
 

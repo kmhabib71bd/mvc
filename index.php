@@ -13,7 +13,7 @@ include "inc/header.php";?>
 //ekhane url a value pale $_GET['url'] return korbe onnothai NULL return korbe. NuLL ekti data type eta zero na, emptyo nah.
 if($url != NULL){
 $url = rtrim($url, '/'); // '/' er dan pashe ja pabe shob guloke remove kore nibe.
- $url = explode("/", $url);
+ $url = explode("/", filter_var($url, FILTER_SANITIZE_URL));
 }else{
 	unset($url); //url ka unset kore dibe
 }
@@ -33,7 +33,9 @@ if (isset($url[0])){
 
 	}
 }else{
-  echo "Defaul";
+  	include 'app/controllers/index.php';
+  		$ctrl = new Index();
+  		$ctrl->home();
 }
 
  
