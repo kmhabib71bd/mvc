@@ -6,13 +6,39 @@ include "inc/header.php";?>
 
  include_once "system/libs/Main.php";
  include_once "system/libs/DController.php";
- $url = $_GET['url'];//ekhane index.php?url=km/habib/ullah ekhane km/habib/ullah holo 'url' er value 'url=' ekhane km/habib/ullah = controller/method/parameter
- $url = rtrim($url, '/'); // '/' er dan pashe ja pabe shob guloke remove kore nibe.
- $url = explode("/", $url);
+ $url = isset($_GET['url']) ? $_GET['url'] : NULL ;//turnary operator = if statement er short form.
 
- include 'app/controllers/'.$url[0].'.php';
-$ctrl = new $url[0]();
-$ctrl->$url[1]($url[2]);
+  //ekhane index.php?url=km/habib/ullah ekhane km/habib/ullah holo 'url' er value 'url=' ekhane km/habib/ullah = controller/method/parameter
+
+//ekhane url a value pale $_GET['url'] return korbe onnothai NULL return korbe. NuLL ekti data type eta zero na, emptyo nah.
+if($url != NULL){
+$url = rtrim($url, '/'); // '/' er dan pashe ja pabe shob guloke remove kore nibe.
+ $url = explode("/", $url);
+}else{
+	unset($url); //url ka unset kore dibe
+}
+
+ 
+if (isset($url[0])){
+	include 'app/controllers/'.$url[0].'.php';
+	$ctrl = new $url[0]();
+	if(isset($url[2])){
+		$ctrl->$url[1]($url[2]);
+	}else{
+		if(isset($url[1])) {
+			$ctrl->$url[1]();
+		}else{
+
+		}
+
+	}
+}else{
+  echo "Defaul";
+}
+
+ 
+
+ //ekhane method, param gulor url thake ashe Dolwar class a jahan matheod a pass hochche.
  //    [0] => controller
  //    [1] => method
  //    [2] => param
