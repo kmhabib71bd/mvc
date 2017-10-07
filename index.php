@@ -6,19 +6,21 @@ include "inc/header.php";?>
 
  include_once "system/libs/Main.php";
 
-
  $url = $_GET['url'];//ekhane index.php?url=km/habib/ullah ekhane km/habib/ullah holo 'url' er value 'url=' ekhane km/habib/ullah = controller/method/parameter
  $url = rtrim($url, '/'); // '/' er dan pashe ja pabe shob guloke remove kore nibe.
  $url = explode("/", $url);
+
+ include 'app/controllers/'.$url[0].'.php';
+$Delowar = new $url[0]();
  //    [0] => controller
  //    [1] => method
  //    [2] => param
-$controller =$url[0]."<br/>";
-$method =$url[1]."<br/>";
-$param =$url[2]."<br/>";
-echo $controller;
-echo $method;
-echo $param;
+// $controller =$url[0]."<br/>";
+// $method =$url[1]."<br/>";
+// $param =$url[2]."<br/>";
+// echo $controller;
+// echo $method;
+// echo $param;
 ?>
 
 <?php 
