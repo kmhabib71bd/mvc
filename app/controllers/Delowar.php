@@ -1,11 +1,12 @@
 <?php
-class Delowar {
+class Delowar extends DController {
 	public function __construct(){
-echo "Delowar Jahan "."<br/>";
+    //parent::__construct();
 	}
-	public function jahan(){
-		echo "Delowar Jahan ";
-		// echo "Delowar Jahan $param";
+	public function jahan($param){
+		
+		echo "Delowar Jahan $param";
+		
 	}
 }
 
