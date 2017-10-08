@@ -1,11 +1,11 @@
 
-<?php 
-include "inc/header.php";?>
+
 
 <?php
 
  include_once "system/libs/Main.php";
  include_once "system/libs/DController.php";
+  include_once "system/libs/Load.php";
  $url = isset($_GET['url']) ? $_GET['url'] : NULL ;//turnary operator = if statement er short form.
 
   //ekhane index.php?url=km/habib/ullah ekhane km/habib/ullah holo 'url' er value 'url=' ekhane km/habib/ullah = controller/method/parameter
@@ -50,10 +50,6 @@ if (isset($url[0])){
 // echo $controller;
 // echo $method;
 // echo $param;
-?>
-
-<?php 
-include "inc/footer.php";
 ?>
 
 

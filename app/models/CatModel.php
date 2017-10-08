@@ -1,6 +1,19 @@
 <?php
+class CatModel{
+	function __construct(){
+		// 
 
+	}
 
+	public function catList(){
+		return  array(
+			'catOne'=>'Education',
+			'catTwo'=>'Sports',
+			'catThree'=>'Health'
+		);
+	
+}
+}
 ?>
 
 
