@@ -12,15 +12,7 @@ public function home(){
 	
 
 }
-public function category(){
-	$data = array();
-	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
-	// $catModel->catList();
-	$data['cat'] = $catModel->catList();//ekhane cat ta index holeo param er moto kaaz korbe
-	$this->load->view("category", $data );
-	// include 'app/controllers/index.php?url='.$url[1]().'.php';
 
-}
 
 }
 

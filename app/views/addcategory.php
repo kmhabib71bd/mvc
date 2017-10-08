@@ -41,8 +41,12 @@ input[type="submit"]{cursor: pointer}
   </header>
 <div class="content"><h3>
 Add Category</h3> <hr/>
-
-<form action="" method="post">
+<?php
+if(isset($msg)){
+	echo "hm".$msg."ok";
+}
+?>
+<form action="http://localhost/mvc/index.php?url=category/insertCategory" method="post">
 	<table>
 		<tr>
 			<td>Category name</td>

@@ -2,11 +2,17 @@
 
 
 <?php
+spl_autoload_register(function($class){
+	 include_once "system/libs/".$class.".php";
+});
+ // include_once "system/libs/Main.php";
+ // include_once "system/libs/DController.php";
+ //  include_once "system/libs/Load.php";
+ //    include_once "system/libs/DModel.php";
+ //      include_once "system/libs/Database.php";
 
-  include_once "system/libs/Main.php";
- include_once "system/libs/DController.php";
-  include_once "system/libs/Load.php";
- $url = isset($_GET['url']) ? $_GET['url'] : NULL;//turnary operator = if statement er short form.
+
+ $url = isset($_GET['url']) ? $_GET['url'] : NULL ;//turnary operator = if statement er short form.
 
   //ekhane index.php?url=km/habib/ullah ekhane km/habib/ullah holo 'url' er value 'url=' ekhane km/habib/ullah = controller/method/parameter
 
@@ -28,7 +34,7 @@ if (isset($url[0])){
 		if(isset($url[1])) {
 			$ctrl->$url[1]();
 		}else{
-
+			#code...
 		}
 
 	}
