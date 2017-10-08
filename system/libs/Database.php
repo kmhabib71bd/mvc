@@ -22,8 +22,36 @@ public function insert($table, $data){ //v-13[16:00]
 		$stmt->bindParam(":$key", $value); //ekhane :$key=:id  and  $value=$id
 	}
 	return $stmt->execute();//3
+}	
+	public function update($table, $data, $cond){
+		$updateKeys = NULL; //v-16
+		foreach ($data as $key => $value){
+			$updateKeys .= "$key=:$key,";
+		}
+		$updateKeys = rtrim($updateKeys, ",");
+		//shesher , coma dur korar jonno uporer line
+
+
+		$sql = "UPDATE $table SET $updateKeys  WHERE $cond";
+		$stmt = $this->prepare($sql);
+		foreach ($data as $key => $value){
+		$stmt->bindParam(":$key", $value); 
+		}
+	return $stmt->execute();//3
+	}
+public function delete($table,$cond,$limit=1){
+	$sql = "DELETE FROM $table WHERE $cond LIMIT $limit";
+	return $this->exec($sql); // exec() PDO objecter ekti command
 }
-	// public function select($table){
+
+	}
+
+
+?>
+<?php
+
+
+// public function select($table){
 	// 		$sql = "select * from $table";
 	// 		$stmt = $this->prepare($sql);
 	// 		$stmt->execute();
@@ -31,11 +59,6 @@ public function insert($table, $data){ //v-13[16:00]
 		// $query=$this->db->query($sql);
 		// $result=$query->fetchAll();
 		// return $result;
-	}
-
-
-?>
-<?php
 // class Database
 // class Database extends PDO{
 // public function __construct($dsn,$user,$pass){

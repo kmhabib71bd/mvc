@@ -24,6 +24,13 @@ class CatModel extends DModel{
 		public function insertCat($table, $data){
 		return $this->db->insert($table, $data);
 	}
+
+	public function catUpdate($table,$data,$cond){
+		return  $this->db->update($table,$data,$cond);
+	}
+	public function delCatById($table,$cond){
+		return  $this->db->delete($table,$cond);
+	}
 	// public function catList(){
 	// 	return  array (
 	// 		array(
