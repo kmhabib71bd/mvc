@@ -43,7 +43,7 @@ input[type="submit"]{cursor: pointer}
 Category List <hr/>
 
 <?php
- foreach ($data as $key  ){
+ foreach ($cat as $key  ){
 	echo $key['catOne']."<br/>";
 	echo $key['catTwo']."<br/>";
 	echo $key['catThree']."<br/>";

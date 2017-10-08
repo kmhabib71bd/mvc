@@ -6,10 +6,17 @@ class CatModel{
 	}
 
 	public function catList(){
-		return  array(
+		return  array (
+			array(
 			'catOne'=>'Education',
 			'catTwo'=>'Sports',
 			'catThree'=>'Health'
+		),
+		 array(
+			'catOne'=>'Education',
+			'catTwo'=>'Sports',
+			'catThree'=>'Health'
+		)
 		);
 	
 }
