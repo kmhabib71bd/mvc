@@ -57,7 +57,7 @@ if(isset($msg)){
 			<td><input type="text" name="title"/></td>
 		</tr>
 		<tr>
-			<td>Category name</td>
+			<td></td>
 			<td><input type="submit" name="submit" value="save" /></td>
 		</tr>
 	</table>
