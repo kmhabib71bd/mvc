@@ -7,7 +7,16 @@ class Index extends DController{
 	}
 public function home(){
 	$this->load->view("header");
-	$this->load->view("content");
+	
+
+//from category controller
+	$data = array();
+	$table = "post";
+	$postModel=$this->load->model("PostModel");
+	$data['allPost'] = $postModel->getAllPost($table);
+	$this->load->view("content", $data);
+	
+
 	$this->load->view("sidebar");
 	$this->load->view("footer");
 	
@@ -15,7 +24,9 @@ public function home(){
 	
 
 }
+public function postDetails(){
 
+}
 
 }
 

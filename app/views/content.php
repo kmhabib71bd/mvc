@@ -2,21 +2,25 @@
 
 	Home <hr/>
 <article class="postcontent">
+	<?php
+	foreach ($allPost as $key => $value) {
+	 ?>
+
 	<div class="post">
-		<h2><a href="#">Title of the post content</a></h2>
-		<p>Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.</p>
-		<div class="readmore"><a href="#">Read More...</a></div>
+		<h2><a href="<?php echo BASE_URL; ?>/Index/postDetails/<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a></h2>
+		<p><?php 
+
+		$text = $value['content'];
+		if(strlen($text) > 200){
+			$text = substr($text, 0, 100);
+			echo $text;
+		}
+		 
+
+		?></p>
+		<div class="readmore"><a href="<?php echo BASE_URL; ?>/mvc/Index/postDetails/<?php echo $value['id']; ?>">Read More...</a></div>
 	</div>
-	<div class="post">
-		<h2><a href="#">Title of the post content</a></h2>
-		<p>Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.</p>
-		<div class="readmore"><a href="#">Read More...</a></div>
-	</div>
-	<div class="post">
-		<h2><a href="#">Title of the post content</a></h2>
-		<p>Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.Post content will go here.</p>
-		<div class="readmore"><a href="#">Read More...</a></div>
-	</div>
+	<?php 	} ?>
 
 </article>
 
