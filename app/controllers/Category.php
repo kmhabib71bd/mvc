@@ -48,19 +48,37 @@ public function insertCategory(){
 }
 
 
- public function addCategory(){ //action kora hoecha insertCategory() methode
-	$this->load->view("catupdate")
+ public function updateCategory(){ 
 
+	$table = "category";
+	$id = '13';
+	$catModel=$this->load->model("CatModel");
+	$data = array();
+	$data['catById']=$catModel->catById($table, $id);
+	$this->load->view("catupdate", $data);
+
+	
+}
 
 public function updateCat(){
 $table = "category";
-$cond = "id=1";
-$data = array(
-	'name' => 'Coding',
-	'title' => 'Coding'
-);
+
+$id = $_POST['id'];
+$name = $_POST['name'];
+$title = $_POST['title'];
+$cond = "id=$id";
+	$data = array (
+		'name' => $name,//key=>value
+		'title' => $title
+	);
 $catModel = $this->load->model("CatModel");
-$catModel->catUpdate($table,$data,$cond);
+$result = $catModel->catUpdate($table,$data,$cond);
+if ($result){
+		$mdata['msg']= "Name and title updated into database";
+	}else{
+		$mdata['msg']= "Name and title not updated into database";
+	}
+	$this->load->view("catupdate", $mdata);
 
 }
 public function deleteCatById(){

@@ -40,26 +40,34 @@ input[type="submit"]{cursor: pointer}
 	
   </header>
 <div class="content"><h3>
-Add Category</h3> <hr/>
+Update Category</h3> <hr/>
 <?php
 if(isset($msg)){
 	echo "hm".$msg."ok";
 }
 ?>
-<form action="http://localhost/mvc/index.php?url=category/insertCategory" method="post">
-	<table>
+<form action="http://localhost/mvc/index.php?url=category/updateCat" method="post">
+	<table> 
+		<?php
+		if(isset($catById)){
+			foreach($catById as $value){
+		
+
+		?>
 		<tr>
+	<input type="hidden" value="<?php echo $value['id'];?>" name="id" />
 			<td>Category name</td>
-			<td><input type="text" name="name"/></td>
+			<td><input type="text" value="<?php echo $value['name'];?>" name="name"/></td>
 		</tr>
 		<tr>
 			<td>Category title</td>
-			<td><input type="text" name="title"/></td>
+			<td><input type="text" value="<?php echo $value['title']; ?>" name="title"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" name="submit" value="save" /></td>
+			<td><input type="submit" name="submit" value="Update" /></td>
 		</tr>
+		<?php } }; ?>
 	</table>
 
 </form>
