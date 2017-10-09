@@ -46,6 +46,12 @@ public function insertCategory(){
 	}
 	$this->load->view("addCategory", $mdata);
 }
+
+
+ public function addCategory(){ //action kora hoecha insertCategory() methode
+	$this->load->view("catupdate")
+
+
 public function updateCat(){
 $table = "category";
 $cond = "id=1";
