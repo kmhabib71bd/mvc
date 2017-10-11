@@ -1,13 +1,13 @@
 
 
-	Home <hr/>
+	<a href="<?php echo BASE_URL; ?>">HOME</a> <hr/>
 <article class="postcontent">
 	<?php
 	foreach ($allPost as $key => $value) {
 	 ?>
 
 	<div class="post">
-		<h2><a href="<?php echo BASE_URL; ?>/Index/postDetails/<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a></h2>
+		<h2><a href="<?php echo BASE_URL; ?>/post/postDetails/<?php echo $value['id']; ?>"><?php echo $value['title']; ?></a></h2>
 		<p><?php 
 
 		$text = $value['content'];
@@ -18,7 +18,7 @@
 		 
 
 		?></p>
-		<div class="readmore"><a href="<?php echo BASE_URL; ?>/mvc/Index/postDetails/<?php echo $value['id']; ?>">Read More...</a></div>
+		<div class="readmore"><a href="<?php echo BASE_URL; ?>/post/postDetails/<?php echo $value['id']; ?>">Read More...</a></div>
 	</div>
 	<?php 	} ?>
 

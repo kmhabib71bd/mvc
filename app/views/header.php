@@ -43,6 +43,12 @@ input[type="submit"]{cursor: pointer}
 .widget ul li a{text-decoration: none;  display: block; color: #fff; margin-bottom: 1px;padding: 5px;}
 .widget ul li a:hover{background:#32D9FF  ;}
 
+.details{}
+.title{border-bottom: 1px dashed #ddd;}
+.title h2{margin:0;}
+.title p{margin: 0; padding: 5px 0}
+.desc{}
+.desc p{line-height: 24px; text-align: justify;}
 
 
 .footeroption{height:90px;background:#177de3;overflow:hidden;padding-top:10px;}

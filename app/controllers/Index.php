@@ -7,8 +7,6 @@ class Index extends DController{
 	}
 public function home(){
 	$this->load->view("header");
-	
-
 //from category controller
 	$data = array();
 	$table = "post";
@@ -25,7 +23,13 @@ public function home(){
 
 }
 public function postDetails(){
+	$this->load->view("header");
+	$this->load->view("details");
+	
 
+	
+	$this->load->view("sidebar");
+	$this->load->view("footer");
 }
 
 }
