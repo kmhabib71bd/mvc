@@ -3,14 +3,16 @@
 		<a href="<?php echo BASE_URL; ?>">Home</a>
 	</div>
 	<div class="search">
-		<form action="" method="post">
+		<form action="<?php echo BASE_URL; ?>/Post/search" method="post">
 			<input type="text" name="keyword" placeholder="Search here..." />
-			<select class="catsearch" name="" id="">
+
+			<select class="catsearch" name="cat" >
 				<option value="">Select One</option>
-				<option value="">Category One</option>
-				<option value="">Category Two</option>
-				<option value="">Category Three</option>
-				<option value="">Category Four</option>
+				<?php 
+					foreach($catlist as $key => $cat) { ?>
+				<option value="<?php echo $cat['id']; ?>"><?php echo $cat['name']; ?></option>
+				
+				<?php } ?>
 			</select>
 			<button class="submitbtn" type="submit">Search</button>
 		</form>

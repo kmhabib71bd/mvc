@@ -6,21 +6,34 @@ class Index extends DController{
 
 	}
 public function home(){
-	$this->load->view("header");
-	$this->load->view("search");
-//from category controller
 	$data = array();
-	$table = "post";
+	$tablePost = "post";
+	$tableCat = "category";
+	$this->load->view("header");
+//search
+	
+
+	
+	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
+	//model ekbar declare korle hoe jabe.
+	// $catModel->catList();
+	$data['catlist'] = $catModel->catList($tableCat);//
+	$this->load->view("search",$data);
+//from category controller
+
 	$postModel=$this->load->model("PostModel");
-	$data['allPost'] = $postModel->getAllPost($table);
+	$data['allPost'] = $postModel->getAllPost($tablePost);
 	$this->load->view("content", $data);
 	
-	$tableCat = "category";
-	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
+
+	// $catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
 	// $catModel->catList();
-	$data['catlist'] = $catModel->catList($tableCat);
- $data['latestPost'] = $postModel->getLatestPost($table);
+	// $data['catlist'] = $catModel->catList($tableCat);
+ $data['latestPost'] = $postModel->getLatestPost($tablePost);
+
 	$this->load->view("sidebar", $data);
+
+
 	$this->load->view("footer");
 	
 

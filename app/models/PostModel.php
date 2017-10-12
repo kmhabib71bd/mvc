@@ -27,6 +27,20 @@ class PostModel extends DModel{
 		return $this->db->select($sql);
 	
 	}
+	public function getPostBySearch($tablePost, $keyword, $cat ){
+		if(empty($keyword) && $cat == 0){
+			header("Location: ".BASE_URL."/Index/home");
+		}
+		if(isset($keyword) && !empty($keyword)){
+			$sql = "SELECT * FROM $tablePost WHERE title LIKE '%keyword%' OR content LIKE '%keyword%'";
+		} elseif(isset($cat)) {
+	$sql ="SELECT * FROM $tablePost WHERE cat = $cat";
+     } else {
+     	$sql = "SELECT * FROM $tablePost WHERE title LIKE '%keyword%' OR content LIKE '%keyword%'";//v27
+     }
+		
+		return $this->db->select($sql);
+	}
 }
 
 ?>

@@ -6,22 +6,22 @@ class Post extends DController{
 }
 
 public function postDetails($id){
-	$this->load->view("header");
-	$this->load->view("search");
-
-
-	
 	$data = array();
 	$tablePost = "post";
 	$tableCat = "category";
+	$this->load->view("header");
+	$catModel=$this->load->model("CatModel");
+
+	//search.php
+	$data['catlist'] = $catModel->catList($tableCat);//
+	$this->load->view("search",$data);
+
+//details.php
 	$postModel=$this->load->model("PostModel");
 	$data['postbyid'] = $postModel->getPostById($tablePost, $tableCat, $id );
-	
 	$this->load->view("details", $data);
-	
 
-	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
-	// $catModel->catList();
+	 //sidebar.php
 	$data['catlist'] = $catModel->catList($tableCat);
  $data['latestPost'] = $postModel->getLatestPost($tablePost);
 	$this->load->view("sidebar", $data);
@@ -30,22 +30,50 @@ public function postDetails($id){
 
 
 public function postBycat($id){
-		$this->load->view("header");
-		$this->load->view("search");
-
-
-	
 	$data = array();
 	$tablePost = "post";
 	$tableCat = "category";
+	$this->load->view("header");
+
+	$catModel=$this->load->model("CatModel"); 
+
+	//search.php
+	$data['catlist'] = $catModel->catList($tableCat);//
+	$this->load->view("search",$data);
+
+	//postbycat.php
 	$postModel=$this->load->model("PostModel");
 	$data['getcat'] = $postModel->getPostBycat($tablePost, $tableCat, $id );
 	$this->load->view("postbycat", $data);
 
-	$tableCat = "category";
-	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
-	// $catModel->catList();
+//sidebar.php
 	$data['catlist'] = $catModel->catList($tableCat);
+ $data['latestPost'] = $postModel->getLatestPost($tablePost);
+	$this->load->view("sidebar", $data);
+	
+	$this->load->view("footer");
+}
+public function search(){
+	$data = array();
+	$keyword = $_REQUEST['keyword'];
+	$cat = $_REQUEST['cat'];
+	$tablePost = "post";
+	$tableCat = "category";
+	$this->load->view("header");
+
+	$catModel=$this->load->model("CatModel"); 
+
+	//search.php
+	$data['catlist'] = $catModel->catList($tableCat);//
+	$this->load->view("search",$data);
+
+	//postbycat.php
+	$postModel=$this->load->model("PostModel");
+	$data['postbysearch'] = $postModel->getPostBySearch($tablePost, $keyword, $cat );
+	$this->load->view("sresult", $data);
+
+//sidebar.php
+	// $data['catlist'] = $catModel->catList($tableCat);
  $data['latestPost'] = $postModel->getLatestPost($tablePost);
 	$this->load->view("sidebar", $data);
 	

@@ -87,7 +87,32 @@ public function deleteCatById(){
 	$catModel = $this->load->model("CatModel");
 $catModel->delCatById($table,$cond);
 }
+public function search(){
+	$data = array();
+	$keyword = $_REQUEST['keyword'];
+	$cat = $_REQUEST['cat'];
+	$tablePost = "post";
+	$tableCat = "category";
+	$this->load->view("header");
 
+	$catModel=$this->load->model("CatModel"); 
+
+	//search.php
+	$data['catlist'] = $catModel->catList($tableCat);//
+	$this->load->view("search",$data);
+
+	//postbycat.php
+	$postModel=$this->load->model("PostModel");
+	$data['postbysearch'] = $postModel->getPostBySearch($tablePost, $keyword, $cat );
+	$this->load->view("sresult", $data);
+
+//sidebar.php
+	// $data['catlist'] = $catModel->catList($tableCat);
+ $data['latestPost'] = $postModel->getLatestPost($tablePost);
+	$this->load->view("sidebar", $data);
+	
+	$this->load->view("footer");
+}
 }
 
 ?>
