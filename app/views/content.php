@@ -1,6 +1,6 @@
 
 
-	<a href="<?php echo BASE_URL; ?>">HOME</a> <hr/>
+
 <article class="postcontent">
 	<?php
 	foreach ($allPost as $key => $value) {

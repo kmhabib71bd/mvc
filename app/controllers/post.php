@@ -7,6 +7,7 @@ class Post extends DController{
 
 public function postDetails($id){
 	$this->load->view("header");
+	$this->load->view("search");
 
 
 	
@@ -30,6 +31,7 @@ public function postDetails($id){
 
 public function postBycat($id){
 		$this->load->view("header");
+		$this->load->view("search");
 
 
 	

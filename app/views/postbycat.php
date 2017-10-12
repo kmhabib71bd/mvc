@@ -1,7 +1,7 @@
 
 
 
-	<a href="<?php echo BASE_URL; ?>">HOME</a> <hr/> <hr/>
+<hr/> <hr/>
 <article class="postcontent">
 	<?php
 	foreach ($getcat as $key => $value) {

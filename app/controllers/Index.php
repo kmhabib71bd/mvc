@@ -7,6 +7,7 @@ class Index extends DController{
 	}
 public function home(){
 	$this->load->view("header");
+	$this->load->view("search");
 //from category controller
 	$data = array();
 	$table = "post";

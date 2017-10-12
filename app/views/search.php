@@ -1,1 +1,18 @@
-search.php
+<div class="searchOption">
+	<div class="menu">
+		<a href="<?php echo BASE_URL; ?>">Home</a>
+	</div>
+	<div class="search">
+		<form action="" method="post">
+			<input type="text" name="keyword" placeholder="Search here..." />
+			<select class="catsearch" name="" id="">
+				<option value="">Select One</option>
+				<option value="">Category One</option>
+				<option value="">Category Two</option>
+				<option value="">Category Three</option>
+				<option value="">Category Four</option>
+			</select>
+			<button class="submitbtn" type="submit">Search</button>
+		</form>
+	</div>
+</div>
