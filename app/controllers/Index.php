@@ -14,8 +14,12 @@ public function home(){
 	$data['allPost'] = $postModel->getAllPost($table);
 	$this->load->view("content", $data);
 	
-
-	$this->load->view("sidebar");
+	$tableCat = "category";
+	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
+	// $catModel->catList();
+	$data['catlist'] = $catModel->catList($tableCat);
+ $data['latestPost'] = $postModel->getLatestPost($table);
+	$this->load->view("sidebar", $data);
 	$this->load->view("footer");
 	
 

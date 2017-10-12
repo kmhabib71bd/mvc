@@ -19,10 +19,15 @@ public function postDetails($id){
 	$this->load->view("details", $data);
 	
 
-	
-	$this->load->view("sidebar");
+	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
+	// $catModel->catList();
+	$data['catlist'] = $catModel->catList($tableCat);
+ $data['latestPost'] = $postModel->getLatestPost($tablePost);
+	$this->load->view("sidebar", $data);
 	$this->load->view("footer");
 }
+
+
 public function postBycat($id){
 		$this->load->view("header");
 
@@ -34,7 +39,14 @@ public function postBycat($id){
 	$postModel=$this->load->model("PostModel");
 	$data['getcat'] = $postModel->getPostBycat($tablePost, $tableCat, $id );
 	$this->load->view("postbycat", $data);
-	$this->load->view("sidebar");
+
+	$tableCat = "category";
+	$catModel=$this->load->model("CatModel"); //ekhane Load.php file hote Object return korbe.
+	// $catModel->catList();
+	$data['catlist'] = $catModel->catList($tableCat);
+ $data['latestPost'] = $postModel->getLatestPost($tablePost);
+	$this->load->view("sidebar", $data);
+	
 	$this->load->view("footer");
 }
 }
